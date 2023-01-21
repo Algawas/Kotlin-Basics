@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Database Project</string>
+    <string name="register">Register</string>
+    <string name="log_in">Log In</string>
+    <string name="title">Task List</string>
+    <string name="phone_hint">Please Input Your Phone Number</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="full_name">Full Name</string>
+    <string name="emailHint">Please Input Your Email</string>
+    <string name="nameHint">Please Input Your Name</string>
+    <string name="welcome_message">Welcome to:</string>
+</resources>
