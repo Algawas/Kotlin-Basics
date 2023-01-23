@@ -15,6 +15,7 @@ Welcome page contains text view (Welcome message) and two buttons (Login, Regist
 
 */
 class MainActivity : AppCompatActivity() {
+    val db = UserDB(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     private fun login(){
         val logIn = findViewById<Button>(R.id.login)
         logIn.setOnClickListener{
-            val intent = Intent(applicationContext, Login::class.java)
+            val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
         }
     }
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     private fun register(){
         val register = findViewById<Button>(R.id.register)
         register.setOnClickListener{
-            val intent = Intent(applicationContext, Register::class.java)
+            val intent = Intent(applicationContext, RegisterActivity::class.java)
             startActivity(intent)
         }
     }
