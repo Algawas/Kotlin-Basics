@@ -3,6 +3,7 @@ package com.algawas.databaseproject
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import android.widget.Toast
@@ -16,6 +17,14 @@ class UserDB(context: Context) :
                         "$COLUMN_NAME TEXT," +
                         "$COLUMN_EMAIL TEXT)"
         db.execSQL(initTable)
+
+        val initTable1 = "CREATE TABLE $TABLE_NAME2 " +
+        "($COLUMN_ID INTEGER PRIMARY KEY," +
+                "$COLUMN_PHONE INTEGER," +
+                "$COLUMN_NAME TEXT," +
+                "$COLUMN_COMPLETED TEXT)"
+
+        db.execSQL(initTable1)
 
     }
 
@@ -70,17 +79,51 @@ class UserDB(context: Context) :
         return cursor.moveToFirst()
     }*/
 
+    fun getTasks(phone: Int): List<TaskModel> {
+        val tasks = arrayListOf<TaskModel>()
+        val db = readableDatabase
+        val query = "SELECT * from $TABLE_NAME2 WHERE $COLUMN_PHONE = $phone"
+
+        //We could have a null, wrong query or so fourth, so we use a try/catch
+        try {
+            //cursor is basically a row, so it should pass by all the rows
+            val cursor = db.rawQuery(query, null)
+            while (cursor.moveToNext()) {
+                val phone = cursor.getInt(cursor.getColumnIndex(COLUMN_PHONE))
+                val name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME))
+                val completed = cursor.getString(cursor.getColumnIndex(COLUMN_COMPLETED))
+                val taskModel = TaskModel(phone, name, completed.toBoolean())
+                tasks.add(taskModel)
+            }
+            return tasks
+        } catch (exception: SQLiteException) {//This is basically the generic of SQLiteException
+            Log.d("Exception", "getUsers: {${exception.message}")
+        }
+        return tasks
+    }
+    fun insertTask(phone: Int, name: String, completed: String) {
+        val database = writableDatabase
+        val values = ContentValues()
+        values.put(COLUMN_PHONE, phone)
+        values.put(COLUMN_NAME, name)
+        values.put(COLUMN_COMPLETED, completed)
+        database.insert(TABLE_NAME, null, values)
+    }
+
 
     companion object {
         //Database info
-        const val DATABASE_NAME = "project_database"
+        const val DATABASE_NAME = "user_database"
         const val DATABASE_VERSION = 1
 
         //Table Info
         const val TABLE_NAME = "user_table"
+        const val TABLE_NAME2 = "task_table"
         const val COLUMN_PHONE = "phone"
         const val COLUMN_NAME = "name"
         const val COLUMN_EMAIL = "email"
+        const val COLUMN_ID = "id"
+        const val COLUMN_COMPLETED = "completed"
 
     }
 

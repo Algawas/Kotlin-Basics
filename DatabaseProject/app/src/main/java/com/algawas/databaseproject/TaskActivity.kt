@@ -47,7 +47,7 @@ class TaskActivity : AppCompatActivity() {
             val phone = intent.getIntExtra("phone",-1)
             db.insertTask(phone, name.text.toString(), completed.isChecked.toString())
             Toast.makeText(applicationContext,"Task added",Toast.LENGTH_LONG).show()
-            //finish()
+            finish()
         }
     }
 

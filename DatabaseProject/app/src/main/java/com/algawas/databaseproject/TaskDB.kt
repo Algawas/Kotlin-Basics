@@ -87,12 +87,12 @@ class TaskDB(context: Context) :
 
     companion object {
         //Database info
-        const val DATABASE_NAME = "project_database"
+        const val DATABASE_NAME = "task_database"
         const val DATABASE_VERSION = 1
 
         //Table Info
         const val TABLE_NAME = "task_table"
-        const val COLUMN_ID = 0
+        const val COLUMN_ID = "id"
         const val COLUMN_PHONE = "phone"
         const val COLUMN_NAME = "name"
         const val COLUMN_COMPLETED = "completed"
