@@ -5,14 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 
-class TaskRecyclerView(
+class HomeAdapter(
     val tasks: ArrayList<TaskModel>
 ) : RecyclerView.Adapter<TaskViewHolder>(){
     //You can't have a class within a class, you must use inner class
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val context = parent.context
-        val inflator = LayoutInflater.from(context).inflate(R.layout.task_layout, parent)
+        val inflator = LayoutInflater.from(context).inflate(R.layout.task_layout,
+            parent, false)
         return TaskViewHolder(inflator)
     }
 

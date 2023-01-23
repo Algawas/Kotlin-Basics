@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 
 /*
@@ -21,17 +19,20 @@ Home page contains recycler view (List of tasks) and toolbar (Add button)
 */
 
 class HomeActivity : AppCompatActivity() {
-    lateinit var adapter: TaskRecyclerView
+    lateinit var adapter: HomeAdapter
     lateinit var recyclerList: RecyclerView
-    val db = UserDB(this)
-    var phone: Int = 0
+    lateinit var tasks: List<TaskModel>
+    private val db = UserDB(this)
+    private var phone: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-         phone = intent.getIntExtra("phone",-1)
-        //   toolBar()
-        showTasks(phone)
+        phone = intent.getIntExtra("phone", -1)
+        onResume()
+        //It would be better to use FAB (Floating Action Button)
     }
+    //init is used to initialize your values, instead of needing to init it in every funtion
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -40,19 +41,17 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val intent = Intent(applicationContext, TaskActivity::class.java)
-        intent.putExtra("phone",phone)
+        intent.putExtra("phone", phone)
         startActivity(intent)
         Log.d("TAG", "phone number: $phone ")
         return true
     }
 
-    fun showTasks(phone: Int){
-        val tasks = db.getTasks(phone)
-
-        adapter = TaskRecyclerView(tasks as ArrayList<TaskModel>)
-
-        recyclerList= findViewById<RecyclerView>(R.id.recycler)
+    override fun onResume() {
+        super.onResume()
+        tasks = db.getTasks(phone)
+        adapter = HomeAdapter(tasks as ArrayList<TaskModel>)
+        recyclerList = findViewById<RecyclerView>(R.id.recycler)
         recyclerList.adapter = adapter
-
     }
 }

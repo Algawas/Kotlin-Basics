@@ -13,13 +13,13 @@ class UserDB(context: Context) :
     override fun onCreate(db: SQLiteDatabase) {
         //SQL Standards, use CAPS for initiating and small letters for values
         val initTable = "CREATE TABLE $TABLE_NAME " +
-                        "($COLUMN_PHONE INTEGER PRIMARY KEY," +
-                        "$COLUMN_NAME TEXT," +
-                        "$COLUMN_EMAIL TEXT)"
+                "($COLUMN_PHONE INTEGER PRIMARY KEY," +
+                "$COLUMN_NAME TEXT," +
+                "$COLUMN_EMAIL TEXT)"
         db.execSQL(initTable)
 
         val initTable1 = "CREATE TABLE $TABLE_NAME2 " +
-        "($COLUMN_ID INTEGER PRIMARY KEY," +
+                "($COLUMN_ID INTEGER PRIMARY KEY," +
                 "$COLUMN_PHONE INTEGER," +
                 "$COLUMN_NAME TEXT," +
                 "$COLUMN_COMPLETED TEXT)"
@@ -34,15 +34,16 @@ class UserDB(context: Context) :
                 val addColumn =
                     "ALTER TABLE $TABLE_NAME ADD COLUMN $COLUMN_PHONE TEXT DEFAULT '000000000'"
                 db.execSQL(addColumn)
-            }else -> {
-        }
+            }
+            else -> {
+            }
 
         }
     }
 
-    fun getUser(phone: Int): UserModel? {
+    fun getUser(phoneIn: Int): UserModel? {
         val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_PHONE = $phone"
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_PHONE = $phoneIn"
         val cursor = db.rawQuery(query, null)
         var userInfo: UserModel? = null //we use a data class to get the db
 
@@ -57,9 +58,9 @@ class UserDB(context: Context) :
 
     fun insertUser(phone: Int, name: String, email: String): Boolean {
         val database = writableDatabase
-        if(getUser(phone) != null) {
+        if (getUser(phone) != null) {
             return false
-        }else{
+        } else {
             val values = ContentValues()
             values.put(COLUMN_PHONE, phone)
             values.put(COLUMN_NAME, name)
@@ -67,17 +68,7 @@ class UserDB(context: Context) :
             database.insert(TABLE_NAME, null, values)
             return true
         }
-    }/*
-
-    fun userExist(phone: Int): Boolean {
-        Log.d("TAG", "userExist: $phone")
-        val db = readableDatabase
-        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_NAME = $phone"
-        val cursor = db.rawQuery(query, null)
-        Log.d("TAG", "moveToFirst: ${cursor.moveToFirst()}")
-
-        return cursor.moveToFirst()
-    }*/
+    }
 
     fun getTasks(phone: Int): List<TaskModel> {
         val tasks = arrayListOf<TaskModel>()
@@ -101,13 +92,14 @@ class UserDB(context: Context) :
         }
         return tasks
     }
+
     fun insertTask(phone: Int, name: String, completed: String) {
         val database = writableDatabase
         val values = ContentValues()
         values.put(COLUMN_PHONE, phone)
         values.put(COLUMN_NAME, name)
         values.put(COLUMN_COMPLETED, completed)
-        database.insert(TABLE_NAME, null, values)
+        database.insert(TABLE_NAME2, null, values)
     }
 
 

@@ -11,4 +11,6 @@
     <string name="nameHint">Please Input Your Name</string>
     <string name="welcome_message">Welcome to:</string>
     <string name="taskName">Please input the task name</string>
+    <string name="isCompleted">Is The Task Completed?</string>
+    <string name="insertButton">Insert</string>
 </resources>

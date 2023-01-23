@@ -4,13 +4,22 @@ import androidx.lifecycle.ViewModel
 
 class RegisterViewModel : ViewModel(){
 
+    //Use when instead of Ifs
     fun checkPhone(phone: String): Boolean{
-        //has @, has .com? maybe check from xml
-       return if (phone.isEmpty()) false else true
+       return (phone.isNotEmpty() && phone.length>=10)
     }
 
-    fun isPhoneValid(phone: String){
-        //phone.length
+    fun checkEmail(email: String): Boolean{
+        return (email.isNotEmpty() &&
+                email.contains("@"))
     }
 
+    fun checkName(name: String): Boolean{
+        return name.isNotEmpty()
+    }
+    fun isPhoneValid(phone: String, name: String, email: String): Boolean{
+        return (checkPhone(phone) &&
+                checkName(name) &&
+                checkEmail(email))
+    }
 }

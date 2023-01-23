@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var phone: EditText
+    private lateinit var logIn: Button
     val db = UserDB(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +27,15 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     fun login() {
-        val logIn = findViewById<Button>(R.id.login)
+        logIn = findViewById<Button>(R.id.login)
         logIn.setOnClickListener {
-            val phone = findViewById<EditText>(R.id.phoneInput)
+            phone = findViewById<EditText>(R.id.phoneInput)
             val phoneStr = phone.text.toString().toInt()
-            Log.d("TAG", "setOnClickListener: $phoneStr")
             if (db.getUser(phoneStr) != null) {
-                Log.d("TAG", "setOnClickListener: True")
                 val intent = Intent(applicationContext, HomeActivity::class.java)
                 intent.putExtra("phone", phoneStr)
                 startActivity(intent)
             } else {
-                Log.d("TAG", "setOnClickListener: True")
                 Toast.makeText(
                     applicationContext,
                     "Phone# $phoneStr does not exist, please register your phone number first",
