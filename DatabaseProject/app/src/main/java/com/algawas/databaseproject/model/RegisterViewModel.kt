@@ -1,4 +1,4 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.model
 
 import androidx.lifecycle.ViewModel
 

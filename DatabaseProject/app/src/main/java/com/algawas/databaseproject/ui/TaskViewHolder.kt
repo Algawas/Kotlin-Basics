@@ -1,8 +1,10 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.ui
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.algawas.databaseproject.R
+import com.algawas.databaseproject.model.TaskModel
 
 class TaskViewHolder(view: View): RecyclerView.ViewHolder(view){
     private val phone = view.findViewById<TextView>(R.id.phone)

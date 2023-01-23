@@ -1,4 +1,4 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,9 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.RecyclerView
+import com.algawas.databaseproject.*
+import com.algawas.databaseproject.database.ProjectDB
+import com.algawas.databaseproject.model.TaskModel
 
 /*
 Project scenario:
@@ -22,7 +25,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var adapter: HomeAdapter
     lateinit var recyclerList: RecyclerView
     lateinit var tasks: List<TaskModel>
-    private val db = UserDB(this)
+    private val db = ProjectDB(this)
     private var phone: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,23 +1,23 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
+import com.algawas.databaseproject.R
+import com.algawas.databaseproject.model.RegisterViewModel
+import com.algawas.databaseproject.database.ProjectDB
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var phone : EditText
     private lateinit var name : EditText
     private lateinit var email : EditText
     private lateinit var register: Button
-    val db = UserDB(this)
+    val db = ProjectDB(this)
     private lateinit var viewModel: RegisterViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

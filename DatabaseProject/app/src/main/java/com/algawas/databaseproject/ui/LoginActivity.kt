@@ -1,18 +1,19 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import com.algawas.databaseproject.R
+import com.algawas.databaseproject.database.ProjectDB
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var phone: EditText
     private lateinit var logIn: Button
-    val db = UserDB(this)
+    val db = ProjectDB(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

@@ -1,4 +1,4 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.model
 
 class TaskModel(
     val phone: Int = -1,

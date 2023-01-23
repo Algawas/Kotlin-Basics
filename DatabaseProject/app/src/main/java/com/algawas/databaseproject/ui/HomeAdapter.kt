@@ -1,8 +1,10 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.algawas.databaseproject.R
+import com.algawas.databaseproject.model.TaskModel
 
 
 class HomeAdapter(
@@ -12,7 +14,9 @@ class HomeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         val context = parent.context
-        val inflator = LayoutInflater.from(context).inflate(R.layout.task_layout,
+        val inflator = LayoutInflater.from(context).
+        inflate(
+            R.layout.task_layout,
             parent, false)
         return TaskViewHolder(inflator)
     }

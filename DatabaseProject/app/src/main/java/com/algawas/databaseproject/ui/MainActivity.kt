@@ -1,9 +1,11 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.algawas.databaseproject.R
+import com.algawas.databaseproject.database.ProjectDB
 
 /*
 The welcome Page:
@@ -15,7 +17,7 @@ Welcome page contains text view (Welcome message) and two buttons (Login, Regist
 
 */
 class MainActivity : AppCompatActivity() {
-    val db = UserDB(this)
+    val db = ProjectDB(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

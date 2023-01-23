@@ -1,4 +1,4 @@
-package com.algawas.databaseproject
+package com.algawas.databaseproject.database
 
 import android.content.ContentValues
 import android.content.Context
@@ -6,9 +6,10 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import android.widget.Toast
+import com.algawas.databaseproject.model.TaskModel
+import com.algawas.databaseproject.model.UserModel
 
-class UserDB(context: Context) :
+class ProjectDB(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase) {
         //SQL Standards, use CAPS for initiating and small letters for values
