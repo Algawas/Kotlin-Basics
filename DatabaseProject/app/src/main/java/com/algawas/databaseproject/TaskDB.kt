@@ -14,7 +14,7 @@ class TaskDB(context: Context) :
 
         val initTable = "CREATE TABLE $TABLE_NAME " +
                 "($COLUMN_ID INTEGER PRIMARY KEY," +
-                "$COLUMN_PHONE INTEGER" +
+                "$COLUMN_PHONE INTEGER," +
                 "$COLUMN_NAME TEXT," +
                 "$COLUMN_COMPLETED TEXT)"
         db.execSQL(initTable)

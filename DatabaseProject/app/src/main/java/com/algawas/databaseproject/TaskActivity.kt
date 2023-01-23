@@ -18,7 +18,7 @@ import kotlinx.coroutines.launch
 
 
 class TaskActivity : AppCompatActivity() {
-    val db = TaskDB(this)
+    val db = UserDB(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task)

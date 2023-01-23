@@ -23,7 +23,7 @@ Home page contains recycler view (List of tasks) and toolbar (Add button)
 class HomeActivity : AppCompatActivity() {
     lateinit var adapter: TaskRecyclerView
     lateinit var recyclerList: RecyclerView
-    val db = TaskDB(this)
+    val db = UserDB(this)
     var phone: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
