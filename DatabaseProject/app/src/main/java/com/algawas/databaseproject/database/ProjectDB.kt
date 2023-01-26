@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.algawas.databaseproject.model.TaskModel
 import com.algawas.databaseproject.model.UserModel
+import kotlin.random.Random
 
 class ProjectDB(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -102,8 +103,6 @@ class ProjectDB(context: Context) :
         values.put(COLUMN_COMPLETED, completed)
         database.insert(TABLE_NAME2, null, values)
     }
-
-
     companion object {
         //Database info
         const val DATABASE_NAME = "user_database"

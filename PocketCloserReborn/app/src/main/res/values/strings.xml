@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Pocket Closet</string>
+    <string name="register">Register</string>
+    <string name="log_in">Log In</string>
+    <string name="title">Pocket Closet</string>
+    <string name="phone_hint">Please Input Your Phone Number</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email</string>
+    <string name="full_name">Full Name</string>
+    <string name="emailHint">Please Input Your Email</string>
+    <string name="nameHint">Please Input Your Name</string>
+    <string name="welcome_message">Welcome to:</string>
+    <string name="clothesName">Please input the clothes name</string>
+    <string name="color">What is the color?</string>
+    <string name="insertButton">Insert</string>
+    <string name="closet">Check Closet</string>
+    <string name="add">Adding Outfit</string>
+    <string name="generate">Generate Outfit</string>
+    <string name="type">Input your clothes type</string>
+    <string name="fab">Add Clothes</string>
+
+    <string-array name="Types">
+        <item>Top</item>
+        <item>Bottoms</item>
+        <item>Footwear</item>
+        <item>Outerwear</item>
+        <item>Accessories</item>
+    </string-array>
+
+    <string-array name="Top">
+        <item>Shirt</item>
+        <item>T-Shirt</item>
+        <item>Sleeveless Shirt</item>
+        <item>Polo Shirt</item>
+        <item>V-Neck</item>
+    </string-array>
+
+    <string-array name="Bottoms">
+        <item>Khakis</item>
+        <item>Shorts</item>
+        <item>Jeans</item>
+        <item>Skirt</item>
+        <item>Pants</item>
+        <item>Pants</item>
+        <item>Cargo Pants</item>
+    </string-array>
+
+    <string-array name="Footwear">
+        <item>Athletic Shoes</item>
+        <item>Dress Shoes</item>
+        <item>Sandals</item>
+        <item>Boots</item>
+        <item>Heels</item>
+    </string-array>
+
+    <string-array name="Outerwear">
+        <item>Jacket</item>
+        <item>Hoodie</item>
+        <item>Coat</item>
+        <item>Puffer Jacket</item>
+        <item>Blazer</item>
+    </string-array>
+
+    <string-array name="Colors">
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Black</item>
+        <item>White</item>
+    </string-array>
+
+    <string-array name="Accessories">
+        <item>Sunglasses</item>
+        <item>Hat</item>
+        <item>Neckless</item>
+        <item>Bracelet</item>
+        <item>Watch</item>
+        <item>Bags</item>
+        <item>Beanie</item>
+        <item>Gloves</item>
+        <item>Scarf</item>
+    </string-array>
+
+
+</resources>

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.algawas.databaseproject.*
 import com.algawas.databaseproject.database.ProjectDB
@@ -32,6 +33,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         phone = intent.getIntExtra("phone", -1)
         onResume()
+
         //It would be better to use FAB (Floating Action Button)
     }
     //init is used to initialize your values, instead of needing to init it in every funtion
